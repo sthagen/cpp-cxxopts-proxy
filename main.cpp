@@ -27,7 +27,8 @@ TEST_SUITE ("Example derived tests.") {
             ("d,debug", "Enable debugging")
             ("f,file", "File name", cxxopts::value<std::string>());
 
-        char *argv[] = {(const char *)"-h", NULL};
+        char help_request[] = "-h";
+        char *argv[] = {help_request, NULL};
         int argc = sizeof(argv) / sizeof(char*) - 1;
         auto result = options.parse(argc, argv);
             REQUIRE(result);
@@ -55,7 +56,8 @@ TEST_SUITE ("Example derived tests.") {
             ("d,debug", "Enable debugging")
             ("f,file", "File name", cxxopts::value<std::string>());
 
-        char *argv[] = {(char *)"-d", NULL};
+        char debug_request[] = "-d";
+        char *argv[] = {debug_request, NULL};
         int argc = sizeof(argv) / sizeof(char*) - 1;
         auto result = options.parse(argc, argv);
             REQUIRE(result);
@@ -82,7 +84,8 @@ TEST_SUITE ("Example derived tests.") {
             ("d,debug", "Enable debugging")
             ("f,file", "File name", cxxopts::value<std::string>());
 
-        char *argv[] = {(char *)"-f=foo", NULL};
+        char file_request[] = "-f=foo";
+        char *argv[] = {file_request, NULL};
         int argc = sizeof(argv) / sizeof(char*) - 1;
         auto result = options.parse(argc, argv);
         for (auto arg: result.arguments()) {
