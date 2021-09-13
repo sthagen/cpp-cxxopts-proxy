@@ -27,10 +27,7 @@ TEST_SUITE ("Example derived tests.") {
             ("d,debug", "Enable debugging")
             ("f,file", "File name", cxxopts::value<std::string>());
 
-        char helpRequest[] = "-h";    // make a non-const char array
-        char *argv[] = { helpRequest, NULL };
-        int argc = 1;
-        auto result = options.parse(argc, argv);
+        auto result = options.parse(1, (char const*[]){"-h", NULL});
             REQUIRE(result);
     }
 
