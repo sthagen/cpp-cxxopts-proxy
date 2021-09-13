@@ -30,7 +30,7 @@ TEST_SUITE ("Example derived tests.") {
         char help_request[] = "-h";
         char *argv[] = {help_request, NULL};
         int argc = sizeof(argv) / sizeof(char*) - 1;
-        auto result = options.parse(argc, argv);
+        auto result = options.parse(argc, (char **)argv);
             REQUIRE(result);
     }
 
