@@ -27,7 +27,7 @@ TEST_SUITE ("Example derived tests.") {
             ("d,debug", "Enable debugging")
             ("f,file", "File name", cxxopts::value<std::string>());
 
-        char *argv[] = {"-h", NULL};
+        char *argv[] = {(char *)"-h", NULL};
         int argc = sizeof(argv) / sizeof(char*) - 1;
         auto result = options.parse(argc, argc);
             REQUIRE(result);
