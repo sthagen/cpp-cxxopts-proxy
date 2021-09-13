@@ -28,7 +28,7 @@ TEST_SUITE ("Example derived tests.") {
             ("f,file", "File name", cxxopts::value<std::string>());
 
         int argc = 1;
-        auto result = options.parse(argc, static_cast<char *[]>({"-h", NULL}));
+        auto result = options.parse(argc, (char const*[]){"-h", NULL});
             REQUIRE(result);
     }
 
