@@ -30,7 +30,7 @@ TEST_SUITE ("Example derived tests.") {
         char helpRequest[] = "-h";    // make a non-const char array
         char *argv[] = { helpRequest, NULL };
         int argc = 1;
-        auto result = options.parse(argc1, argv);
+        auto result = options.parse(argc, argv);
             REQUIRE(result);
     }
 
@@ -59,7 +59,7 @@ TEST_SUITE ("Example derived tests.") {
         char debugRequest[] = "-d";    // make a non-const char array
         char *argv[] = { debugRequest, NULL };
         int argc = 1;
-        auto result = options.parse(argc1, argv);
+        auto result = options.parse(argc, argv);
             REQUIRE(result);
     }
 
@@ -87,7 +87,7 @@ TEST_SUITE ("Example derived tests.") {
         char fileRequest[] = "-f=foo";    // make a non-const char array
         char *argv[] = { fileRequest, NULL };
         int argc = 1;
-        auto result = options.parse(argc1, argv);
+        auto result = options.parse(argc, argv);
         for (auto arg: result.arguments()) {
             REQUIRE(arg.key());
             check(arg.value() == "foo");
