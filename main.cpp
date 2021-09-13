@@ -84,8 +84,9 @@ TEST_SUITE ("Example derived tests.") {
             ("d,debug", "Enable debugging")
             ("f,file", "File name", cxxopts::value<std::string>());
 
-        char file_request[] = "-f=foo";
-        char *argv[] = {file_request, NULL};
+        char file_request[] = "-f";
+        char file_argument[] = "foo";
+        char *argv[] = {file_request, file_argument, NULL};
         int argc = sizeof(argv) / sizeof(char*) - 1;
         // auto result = options.parse(argc, argv);
         // for (auto arg: result.arguments()) {
