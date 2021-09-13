@@ -29,7 +29,7 @@ TEST_SUITE ("Example derived tests.") {
 
         char *argv[] = {(char *)"-h", NULL};
         int argc = sizeof(argv) / sizeof(char*) - 1;
-        auto result = options.parse(argc, argc);
+        auto result = options.parse(argc, argv);
             REQUIRE(result);
     }
 
@@ -55,9 +55,8 @@ TEST_SUITE ("Example derived tests.") {
             ("d,debug", "Enable debugging")
             ("f,file", "File name", cxxopts::value<std::string>());
 
-        char debugRequest[] = "-d";    // make a non-const char array
-        char *argv[] = { debugRequest, NULL };
-        int argc = 1;
+        char *argv[] = {(char *)"-d", NULL};
+        int argc = sizeof(argv) / sizeof(char*) - 1;
         auto result = options.parse(argc, argv);
             REQUIRE(result);
     }
@@ -83,9 +82,8 @@ TEST_SUITE ("Example derived tests.") {
             ("d,debug", "Enable debugging")
             ("f,file", "File name", cxxopts::value<std::string>());
 
-        char fileRequest[] = "-f=foo";    // make a non-const char array
-        char *argv[] = { fileRequest, NULL };
-        int argc = 1;
+        char *argv[] = {(char *)"-f=foo", NULL};
+        int argc = sizeof(argv) / sizeof(char*) - 1;
         auto result = options.parse(argc, argv);
         for (auto arg: result.arguments()) {
             REQUIRE(arg.key());
